@@ -3,17 +3,18 @@ from scrapy.spider import BaseSpider
 from scrapy.http import Request, FormRequest
 from sqli.items import CandidateInjectionPoint
 from urlparse import *
-from sqli.settings import DOMAIN
+from sqli.settings import DOMAIN, START_URLS
+from sqli.resources import BruteForceResources
 
 class SelectCandidateInjectionPoint(BaseSpider):
     name = 'sqli_spider'
     allowed_domains = [DOMAIN]
-    start_urls = ['http://cotidiano.soeirosantos.com.br/']
+    start_urls = BruteForceResources().generate_start_urls()
 
     def parse(self, response):
         content_type = response.headers['Content-Type']        
         
-        if response.status != 404 and 'text/html' in content_type:
+        if response.status not in (401, 404, 500) and 'text/html' in content_type:
             hxs = HtmlXPathSelector(response)
             
             for form in hxs.select("//form"):

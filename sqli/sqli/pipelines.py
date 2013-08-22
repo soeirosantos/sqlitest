@@ -1,5 +1,5 @@
 from scrapy.exceptions import DropItem
-from sqli.settings import SQLMAP_PATH, OUTPUT_PATH
+from sqli.settings import SQLMAP_PATH, OUTPUT_PATH, SQLMAP_CMD_TPL
 
 class DuplicatesPipeline(object):
 
@@ -25,18 +25,7 @@ class SqlMapPipeline(object):
         return item
 
     def get_command(self, item):
-        #sqlmap default command template. customize it, but be careful ;)
-        CMD_TPL = 'nohup python %(sqlmap_path)s          \
-                         -u %(target)s                   \
-                         --technique=B                   \
-                         --batch                         \
-                         --level=5                       \
-                         --risk=4                        \
-                         --threads=10                    \
-                         > %(output_path)s/%(file_name)s \
-                        2>&1 &'
-
-        return CMD_TPL % {"target" : self.get_target(item)
+        return SQLMAP_CMD_TPL % {"target" : self.get_target(item)
                          ,"file_name"    : self.get_log_file_name(item)
                          ,"sqlmap_path"  : SQLMAP_PATH
                          ,"output_path"  : OUTPUT_PATH}

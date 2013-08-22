@@ -1,0 +1,1 @@
+ps -ef | grep sqlmap | grep -v grep | awk '{print $2}'
