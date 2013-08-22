@@ -9,7 +9,7 @@ from sqli.resources import BruteForceResources
 class SelectCandidateInjectionPoint(BaseSpider):
     name = 'sqli_spider'
     allowed_domains = [DOMAIN]
-    start_urls = BruteForceResources().generate_start_urls()
+    start_urls = START_URLS + BruteForceResources().generate_urls()
 
     def parse(self, response):
         content_type = response.headers['Content-Type']        

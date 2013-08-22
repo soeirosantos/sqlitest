@@ -28,7 +28,8 @@ class BruteForceResources(object):
         return words
 
     def __load_wordlists(self, domain):
-        return self.__load_wordlists_from_cewl(domain) + self.__load_wordlists_from_files()
+        return open('/home/romulo/python/projects/websec/brute/sampledata') #self.__load_wordlists_from_cewl(domain) + self.__load_wordlists_from_files()
+
 
     def __bruteforce_path(self, words, depth):
         import itertools
@@ -36,17 +37,17 @@ class BruteForceResources(object):
             for candidate in itertools.chain.from_iterable(itertools.product(words, repeat=i)
             for i in range(1, depth + 1))]
 
-    def generate_start_urls(self):
-        import urlparse
-        domain_ = urlparse.urlparse(DOMAIN, scheme='http').geturl()
-        
+    def generate_urls(self):
+        if "http://" not in DOMAIN:
+            domain_ = "http://"+DOMAIN
+        else:
+            domain_ = DOMAIN    
+
         wordlist = [line.replace("\n", "") for line in self.__load_wordlists(domain_) ]
         
-        urls_by_wordlist = [domain_+'/'+path+extension 
+        return [domain_+'/'+path+extension 
                 for path in self.__bruteforce_path(wordlist, 2) 
                 for extension in BF_EXTENSIONS]
-    
-        return START_URLS + urls_by_wordlist
 
 if __name__ == '__main__':
     pass

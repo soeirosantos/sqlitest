@@ -23,7 +23,7 @@ SQLMAP_PATH = "/home/romulo/websec/sqlmap/sqlmap.py"
 #output log path
 OUTPUT_PATH = "/home/romulo/python/projects/websec/github/sqlitest/sqli/output"
 
-CEWL_PATH = "/home/romulo/websec/cewl/cewl/cewl.rb"
+CEWL_PATH = "" #"/home/romulo/websec/cewl/cewl/cewl.rb"
 
 ### BRUTE FORCE SETTINGS ###
 
