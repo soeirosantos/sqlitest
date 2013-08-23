@@ -12,18 +12,18 @@ ITEM_PIPELINES = [
 
 ### SPIDER SETTINGS ###
 
-DOMAIN = 'cotidiano.soeirosantos.com.br'
+DOMAIN = 'domain.to.test.com'
 
-START_URLS = ['http://cotidiano.soeirosantos.com.br/']
+START_URLS = ['http://domain.to.test.com']
 
 ### PATHS ###
 
-SQLMAP_PATH = "/home/romulo/websec/sqlmap/sqlmap.py"
+SQLMAP_PATH = "/path/to/sqlmap/sqlmap.py"
 
 #output log path
-OUTPUT_PATH = "/home/romulo/python/projects/websec/github/sqlitest/sqli/output"
+OUTPUT_PATH = "/path/to/output/logs/"
 
-CEWL_PATH = "" #"/home/romulo/websec/cewl/cewl/cewl.rb"
+CEWL_PATH = "" #"/path/to/cewl/cewl.rb" # keep it commented if you don't want use cewl
 
 ### BRUTE FORCE SETTINGS ###
 
@@ -31,13 +31,12 @@ CEWL_PATH = "" #"/home/romulo/websec/cewl/cewl/cewl.rb"
 BF_EXTENSIONS = ("", ".php", ".html", ".htm")
 
 #provide a directory to get third party files with common path locations
-THIRD_PARTY_FILES_PATH = "" #"/home/romulo/python/projects/websec/github/sqlitest/sqli/wordlists"
+THIRD_PARTY_FILES_PATH = "" #"/path/to/third/party/wordlists"
 
 ### COMMAND TEMPLATES ###
 
 #cewl default command template. customize it, but be careful ;)     
-#FIXME: fix the ruby command interpreter
-CEWL_CMD_TPL = "ruby-1.9.3-p194@cewl %(cewl_path)s %(domain)s"
+CEWL_CMD_TPL = "ruby %(cewl_path)s %(domain)s"
 
 #sqlmap default command template. customize it, but be careful ;)       
 SQLMAP_CMD_TPL = 'nohup python %(sqlmap_path)s          \

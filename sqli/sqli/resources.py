@@ -28,7 +28,7 @@ class BruteForceResources(object):
         return words
 
     def __load_wordlists(self, domain):
-        return open('/home/romulo/python/projects/websec/brute/sampledata') #self.__load_wordlists_from_cewl(domain) + self.__load_wordlists_from_files()
+        return self.__load_wordlists_from_cewl(domain) + self.__load_wordlists_from_files()
 
 
     def __bruteforce_path(self, words, depth):
