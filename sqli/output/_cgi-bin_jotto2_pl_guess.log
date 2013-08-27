@@ -1,18 +1,0 @@
-
-    sqlmap/1.0-dev-278c562 - automatic SQL injection and database takeover tool
-    http://sqlmap.org
-
-[!] legal disclaimer: Usage of sqlmap for attacking targets without prior mutual consent is illegal. It is the end user's responsibility to obey all applicable local, state and federal laws. Developers assume no liability and are not responsible for any misuse or damage caused by this program
-
-[*] starting at 20:07:47
-
-[?1049h[1;24r(B[m[4l[?7h[24;1H[?1049l[?1l>[20:07:48] [INFO] testing connection to the target URL
-[20:07:48] [INFO] testing if the target URL is stable. This can take a couple of seconds
-[20:07:50] [INFO] target URL is stable
-[20:07:50] [INFO] testing if POST parameter 'guess' is dynamic
-[20:07:50] [WARNING] POST parameter 'guess' does not appear dynamic
-[20:07:51] [WARNING] heuristic (basic) test shows that POST parameter 'guess' might not be injectable
-[20:07:51] [INFO] testing for SQL injection on POST parameter 'guess'
-[20:07:51] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause'
-[20:09:01] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (MySQL comment)'
-[20:10:11] [INFO] testing 'AND boolean-based blind - WHERE or HAVING clause (Generic comment)'
